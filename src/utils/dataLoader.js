@@ -205,8 +205,10 @@ function getDefaultMapping(location) {
  * CSV 파일 로드
  */
 export async function loadData() {
-  const dataUrl = '/converted/2025 하반기 재원생 만족도조사 데이터 및 문항속성_챗GPT_데이터.csv'
-  const metadataUrl = '/converted/2025 하반기 재원생 만족도조사 데이터 및 문항속성_챗GPT_문항 및 보기.csv'
+  // GitHub Pages base URL을 고려한 경로
+  const baseUrl = import.meta.env.BASE_URL || '/'
+  const dataUrl = `${baseUrl}converted/2025 하반기 재원생 만족도조사 데이터 및 문항속성_챗GPT_데이터.csv`
+  const metadataUrl = `${baseUrl}converted/2025 하반기 재원생 만족도조사 데이터 및 문항속성_챗GPT_문항 및 보기.csv`
   
   console.log('CSV 파일 로드 시도:', { dataUrl, metadataUrl })
   
@@ -1372,4 +1374,5 @@ function getGrade(value) {
   
   return val
 }
+
 
