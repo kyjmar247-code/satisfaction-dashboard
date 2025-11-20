@@ -15,11 +15,18 @@
               class="location-search-input"
             />
             <div v-if="locationSearchResult" class="location-search-result">
-              <div class="search-result-item">
+              <div 
+                class="search-result-item" 
+                @click="selectLocationFromSearch(locationSearchResult)"
+                style="cursor: pointer;"
+              >
                 <strong>{{ locationSearchResult.location }}</strong>
                 <div class="search-result-info">
                   <span class="result-badge result-region">{{ locationSearchResult.region }}</span>
                   <span class="result-badge result-group">그룹 {{ locationSearchResult.group }}</span>
+                </div>
+                <div style="font-size: 11px; color: #666; margin-top: 4px;">
+                  클릭하여 필터 적용
                 </div>
               </div>
             </div>
@@ -508,24 +515,6 @@
                   </tr>
                 </tbody>
               </table>
-
-              <div v-if="totalPages > 1" class="pagination-controls">
-                <button
-                  @click="currentPage = Math.max(1, currentPage - 1)"
-                  :disabled="currentPage === 1"
-                  class="filter-select"
-                >
-                  이전
-                </button>
-                <span style="padding: 10px;">{{ currentPage }} / {{ totalPages }}</span>
-                <button
-                  @click="currentPage = Math.min(totalPages, currentPage + 1)"
-                  :disabled="currentPage === totalPages"
-                  class="filter-select"
-                >
-                  다음
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -2145,6 +2134,17 @@ const paginatedUnsatisfiedResponses = computed(() => {
 })
 
 // 이벤트 핸들러
+// 검색 결과에서 지점 선택 시 필터 자동 적용
+function selectLocationFromSearch(result) {
+  if (result && result.location) {
+    filters.value.region = result.region || '전체'
+    filters.value.group = result.group || '전체'
+    filters.value.location = result.location
+    // 검색창 초기화 (선택적)
+    // locationSearchQuery.value = ''
+  }
+}
+
 const onFilterChange = () => {
   // 그룹이나 권역이 변경되면 하위 필터 리셋
   if (filters.value.region === '전체') {
