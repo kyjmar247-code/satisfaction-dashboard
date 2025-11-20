@@ -984,11 +984,11 @@ const selfstudyReasonData = computed(() => {
         if (numMatch) {
           const code = numMatch[1]
           const mapping = {
-            '1': '인터넷강의 중심으로 학습하기 위해',
-            '2': '부족한 과목을 집중적으로 선택 학습하기 위해',
-            '3': '자유로운 시간 관리를 위해',
-            '4': '자기주도학습(순공) 시간을 늘리기 위해',
-            '5': '재수종합학원의 학습 커리큘럼이 비효율적이라고 생각해서',
+            '1': '인터넷 강의 중심 학습',
+            '2': '부족한 과목 집중 학습',
+            '3': '자유로운 시간 관리',
+            '4': '순공 시간 확보',
+            '5': '재수종합학원의 비효율성',
             '6': '기타'
           }
           key = mapping[code] || keyRaw
@@ -1411,11 +1411,11 @@ function calculateQuestionDistribution(data, questionCode) {
         if (match) {
           const code = match[1]
           const mapping = {
-            '1': '대학별 모집요강 분석 자료 제공',
-            '2': '대학별 입시 결과 자료 제공',
-            '3': '성적&적성에 따른 대학 및 학과 추천',
-            '4': '수시 지원을 위한 학생부 분석',
-            '5': '정시 원서 접수를 위한 상담',
+            '1': '모집요강 분석 자료 제공',
+            '2': '입시 결과 자료 제공',
+            '3': '대학/학과 추천',
+            '4': '학생부 분석',
+            '5': '정시 원서 상담',
             '6': '기타'
           }
           if (mapping[code]) {
@@ -1442,7 +1442,7 @@ function calculateQuestionDistribution(data, questionCode) {
         if (match) {
           const code = match[1]
           const mapping = {
-            '1': '성적/학습 방향 및 계획 관련 상담',
+            '1': '성적/학습 관련 상담',
             '2': '생활 및 고민 상담',
             '3': '입시 및 진학 상담',
             '4': '기타'
@@ -1475,7 +1475,7 @@ function calculateQuestionDistribution(data, questionCode) {
             '2': '2주 1회 진행',
             '3': '3주 1회 진행',
             '4': '한 달에 한 번 진행',
-            '5': '주기나 횟수에 상관 없이 수시로 진행',
+            '5': '수시 진행',
             '6': '상담 안 함'
           }
           if (mapping[code]) {
