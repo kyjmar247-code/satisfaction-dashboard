@@ -98,6 +98,6 @@ if errorlevel 1 (
     assetsDir: 'assets',
     emptyOutDir: true
   },
-  base: process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/'
+  base: process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/satisfaction-dashboard/'
 })
 
